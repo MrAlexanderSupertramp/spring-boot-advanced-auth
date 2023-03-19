@@ -1,0 +1,3 @@
+<div th:fragment="message" th:if="${messenger != null && messenger.status != null && messenger.message != null}">
+    <p class="text-center" th:style="${messenger.status == 'failure' ? 'color:red' : 'color:green' }" th:text="${messenger.message}"></p>
+</div>
