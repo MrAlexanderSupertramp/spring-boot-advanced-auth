@@ -42,8 +42,8 @@ public class SpringAuthApplication {
 	// 		roleRepository.save(new Role("ROLE_USER"));
 	// 		roleRepository.save(new Role("ROLE_ADMIN"));
 
-	// 		userRepository.save(new User("Jiril Admin", "jiril@admin.com", passwordEncoder2().encode("1234"), "1234", false, new ArrayList<>()));
-	// 		userRepository.save(new User("Jiril User", "jiril@user.com", passwordEncoder2().encode("1234"), "1234", false, new ArrayList<>()));
+	// 		userRepository.save(new User("Jiril Admin", "jiril@admin.com", passwordEncoder2().encode("12345678"), "12345678", false, new ArrayList<>()));
+	// 		userRepository.save(new User("Jiril User", "jiril@user.com", passwordEncoder2().encode("12345678"), "12345678", false, new ArrayList<>()));
 
 	// 		userService.saveRoleToUser("jiril@admin.com", "ROLE_ADMIN");
 	// 		userService.saveRoleToUser("jiril@user.com", "ROLE_USER");
