@@ -20,5 +20,6 @@ public interface UserService {
     Messenger removeRoleFromUser(String username, String name);
     Messenger<List<Role>> getRoles();
     Messenger getRole(String name);
+    void saveRoleToUser(String username, String role_name);
     
 }

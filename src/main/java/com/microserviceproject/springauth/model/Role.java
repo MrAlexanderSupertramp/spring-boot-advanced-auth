@@ -41,4 +41,8 @@ public class Role implements Serializable {
     @JsonIgnore
     private Collection<User> users = new ArrayList<>(); //non-owner side (inverse). mapped by is property of owner side.
     
+    public Role(String name) {
+        this.name = name;
+    } 
+
 }

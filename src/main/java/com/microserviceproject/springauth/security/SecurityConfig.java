@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -13,14 +14,18 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.microserviceproject.springauth.filter.CustomAuthenticationFilter;
 import com.microserviceproject.springauth.filter.CustomAuthorizationFilter;
+import com.microserviceproject.springauth.model.Role;
+import com.microserviceproject.springauth.model.User;
 import com.microserviceproject.springauth.service.UserService;
 import com.microserviceproject.springauth.service.UserServiceImpl;
 import com.microserviceproject.springauth.util.CustomAuthenticationFailureHandler;
@@ -67,7 +72,7 @@ public class SecurityConfig {
     public SecurityFilterChain mainFilterChain(HttpSecurity httpSecurity) throws Exception {
 
         httpSecurity
-            .requestMatchers().antMatchers("/admin/**", "/auth/**") // or antMatcher("/admin")
+            .requestMatchers().antMatchers("/admin/**", "/auth/**", "/") // or antMatcher("/admin")
             .requestMatchers().antMatchers(static_urls.stream().toArray(String[]::new))
             .and()
             .csrf().disable()

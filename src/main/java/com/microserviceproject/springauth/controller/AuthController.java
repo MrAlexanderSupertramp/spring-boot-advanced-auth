@@ -26,7 +26,6 @@ public class AuthController {
     @Autowired
     private UserService userService;
 
-
     @GetMapping(value = {"/login", "/login/"})
     public String login(@RequestParam Map<String, String> params, Model model, RedirectAttributes redirectAttributes) { // can also use if single param : @RequestParam(name="error", required=false) String error
 

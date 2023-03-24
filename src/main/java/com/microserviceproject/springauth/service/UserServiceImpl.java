@@ -291,5 +291,18 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return user; // return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
     }
 
+    @Override
+    public void saveRoleToUser(String username, String role_name) {
+        try {
+            User user = userRepository.findByUsername(username);
+            Role role = roleRepository.findByName(role_name);
+    
+            user.setRoles(Arrays.asList(role));
+            userRepository.save(user);
+        } catch (Exception e) {
+            System.out.println("Error happened : " + e.getMessage());
+        }
+    }
+
 }
 
